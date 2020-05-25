@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/feature-details" />
+            <option value="$PROJECT_DIR$/feature-map" />
+            <option value="$PROJECT_DIR$/shared-common" />
+            <option value="$PROJECT_DIR$/shared-di" />
+            <option value="$PROJECT_DIR$/shared-location-provider" />
+            <option value="$PROJECT_DIR$/shared-navigation" />
+            <option value="$PROJECT_DIR$/shared-places" />
+            <option value="$PROJECT_DIR$/shared-resources" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

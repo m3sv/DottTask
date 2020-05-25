@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+}
+
+dependencies {
+    testImplementation libraries.junit
+    testImplementation libraries.kotlin.coroutines.test
+    testImplementation libraries.mockito.inline
+    testImplementation libraries.mockito.kotlin
+
+    kapt libraries.dagger.compiler
+    implementation libraries.dagger.core
+    compileOnly libraries.dagger.inject
+
+    implementation libraries.kotlin.coroutines.core
+    implementation libraries.kotlin.stdlib
+
+    kapt libraries.moshi.codegen
+    implementation libraries.moshi.core
+    implementation libraries.retrofit.core
+    implementation libraries.retrofit.moshiConverter
+    implementation libraries.timber
+
+    implementation project(":shared-di")
+}

@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.m3sv.dotttask.feature.details">
+
+    <application android:name="com.m3sv.dotttask.feature.DetailsApp" />
+</manifest>

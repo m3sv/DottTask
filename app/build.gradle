@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation libraries.androidx.appCompat
+    implementation libraries.androidx.coreKtx
+    implementation libraries.androidx.fragment.core
+
+    kapt libraries.dagger.compiler
+    implementation libraries.dagger.core
+    compileOnly libraries.dagger.inject
+
+    implementation libraries.easyPermissions
+    implementation libraries.kotlin.coroutines.core
+    implementation libraries.kotlin.stdlib
+    implementation libraries.googleServices.maps.core
+    implementation libraries.moshi.core
+    implementation libraries.retrofit.core
+    implementation libraries.retrofit.moshiConverter
+    implementation libraries.timber
+
+    implementation project(":feature-details")
+    implementation project(":feature-map")
+    implementation project(":shared-di")
+    implementation project(":shared-location-provider")
+    implementation project(":shared-navigation")
+    implementation project(":shared-places")
+    implementation project(":shared-resources")
+}

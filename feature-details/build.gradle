@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    // TODO cleanup this
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation libraries.androidx.fragment.test
+
+    kaptAndroidTest libraries.dagger.compiler
+
+    testImplementation libraries.junit
+    testImplementation libraries.mockito.kotlin
+    testImplementation libraries.mockito.inline
+    testImplementation libraries.kotlin.coroutines.test
+    testImplementation libraries.androidx.archCoreTesting
+
+
+    implementation libraries.androidx.fragment.ktx
+    implementation libraries.androidx.appCompat
+    implementation libraries.androidx.core
+    implementation libraries.androidx.coreKtx
+    implementation libraries.androidx.recyclerView
+
+    implementation libraries.kotlin.stdlib
+
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+
+    kapt libraries.dagger.compiler
+    implementation libraries.dagger.core
+    compileOnly libraries.dagger.inject
+
+    implementation project(":shared-common")
+    implementation project(":shared-di")
+    implementation project(":shared-places")
+    implementation project(":shared-resources")
+}
